@@ -15,6 +15,7 @@
 
 .tl-text-wrapper{
     max-height: 300px;
+	white-space: pre-line;
     overflow-y: auto;
 }
 
