@@ -56,7 +56,7 @@
                     tooltipElement.style.display = 'block';
                     var infoContainer = element.getElementsByClassName(classList.infoContainer)[0],
                         infoContainerHeight = infoContainer.offsetHeight,
-                        arrowHalfWidth = arrow.offsetWidth / 2,
+                        arrowHalfWidth = 0,
                         windowWidth = window.innerWidth,
                         spotBounds = {
                             width: element.offsetWidth,
@@ -90,6 +90,7 @@
                         tooltipElement.style.top = tooltipBounds.top + 'px';
                     }
                     
+                    arrowHalfWidth = arrow.offsetWidth / 2
                     tooltipBounds.left = spotBounds.centerPosition.left - tooltipBounds.width * 0.5;
                     arrow.style.left = spotBounds.centerPosition.left - tooltipBounds.left - arrowHalfWidth + 'px';
 
