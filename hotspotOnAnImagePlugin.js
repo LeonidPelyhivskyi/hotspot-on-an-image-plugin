@@ -195,34 +195,36 @@
         init();
         
         function init(){
-            var infoElement = document.createElement('span');
-            infoElement.classList.add(classList.infoContainer);
-            that.element.appendChild(infoElement);
-            that.hide();
-            if (isTouchDevice()){
-                that.element.addEventListener('click', function(event){
-                    tooltip.show(container, that.element, that.text);
-                    event.stopPropagation();
-                });
+			if (that.text !== '' || typeof that.text !== 'undefined'){
+				var infoElement = document.createElement('span');
+				infoElement.classList.add(classList.infoContainer);
+				that.element.appendChild(infoElement);
+				that.hide();
+				if (isTouchDevice()){
+					that.element.addEventListener('click', function(event){
+						tooltip.show(container, that.element, that.text);
+						event.stopPropagation();
+					});
 
-            } else {
-                that.element.addEventListener('mouseover', function () {
-                    tooltip.show(container, that.element, that.text);
-                });
+				} else {
+					that.element.addEventListener('mouseover', function () {
+						tooltip.show(container, that.element, that.text);
+					});
 
-                that.element.addEventListener('mouseout', function (event) {
-                    var e = event.toElement || event.relatedTarget;
-                    if (e && (e.parentNode == this || e == this || e == tooltip.element)) {
-                       return;
-                    }
+					that.element.addEventListener('mouseout', function (event) {
+						var e = event.toElement || event.relatedTarget;
+						if (e && (e.parentNode == this || e == this || e == tooltip.element)) {
+						   return;
+						}
 
-                    setTimeout(function(){
-                        if (!tooltip.element.classList.contains(classList.mouseover)){
-                            tooltip.hide();
-                        }
-                    }, 10);
-                });
-            }
+						setTimeout(function(){
+							if (!tooltip.element.classList.contains(classList.mouseover)){
+								tooltip.hide();
+							}
+						}, 10);
+					});
+				}
+			}
         }
     };
     
