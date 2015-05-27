@@ -132,6 +132,10 @@
             }
             
             function bindEvents(){
+                window.addEventListener('resize', function (){
+                    hide();
+                });
+                
                 if (isTouchDevice()){
                     tooltipElement.addEventListener('click', function(event){
                         event.stopPropagation();
