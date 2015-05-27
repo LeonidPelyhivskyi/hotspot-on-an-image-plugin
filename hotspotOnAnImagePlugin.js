@@ -195,7 +195,7 @@
         init();
         
         function init(){
-            if (that.text !== '' && typeof taht.text !== 'undefined'){
+            if (that.text !== '' && typeof that.text !== 'undefined'){
                 var infoElement = document.createElement('span');
                 infoElement.classList.add(classList.infoContainer);
                 that.element.appendChild(infoElement);
